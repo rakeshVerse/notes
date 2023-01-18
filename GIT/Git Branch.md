@@ -21,7 +21,9 @@ In Git, a `branch` is a new/separate version of the main repository. Branches al
 * **Delete branch:** `git branch -d <branch_name>`
 <br>
 ## <u>Example</u>
+
 Lets say we have a repo named **myproject**:
+
 ![Screenshot from 2022-10-16 03-35-27.png](../_resources/Screenshot from 2022-10-16 03-35-27.png)
 
 **Adding new feature:** Suppose, we want to add a new feature to the project.
