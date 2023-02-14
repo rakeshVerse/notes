@@ -143,7 +143,8 @@ Now, changes can be pushed to remote repo > git push
 
 So, to sum up, We had a feature branch created against an older commit from master. So we rebased our feature branch against the latest commit from master and then merged the feature branch back into master. 
 
-Case 4 Master branch Rebase:
+#### Case 4 
+**Master branch Rebase:**
 One common example is to rebase the changes in the master branch when someone else also made changes and we want to keep history linear. 
 This is a pretty common occurrence when you're working on a change that's small enough not to need a separate branch and your collaborators just happened to commit something at the same time. 
 
@@ -177,7 +178,7 @@ and even how to figure out which fixes are needed.
 
 
 
-### Pull Request Squash
+#### Pull Request Squash
 
 If your pull request has multiple commits, the maintainers might ask for squashing the commits into one. 
 Suppose, you create a branch, add-feature to work on a feature. Once, done, you created a commit and pushed it and created a pull request.
