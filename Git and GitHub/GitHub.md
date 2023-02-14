@@ -132,7 +132,7 @@ In our case, we can change the base of feature branch to the latest commit of th
 > git checkout feature
 > git rebase master // Chagne the base of current branch i.e. feature to HEAD of master 
 
-![3way-merge](assets/images/rebase-trans.png)
+![3way-merge](assets/images/rebase-white.png)
 
 After rebase we can merge feature to master. And can delete the feature branch remotely & localy and the push master to server. 
 Now, we have linear commit history on remote. It will be easier for contribute to find the commit which introduced the bugs when bug occurs.
@@ -195,7 +195,7 @@ Now, your pull request has two commits. The maintainer asked you to squash those
     - Check the log:
         > git show --graph --oneline --all
 
-![squash](assets/images/squash-trans.png)
+![squash](assets/images/squash-white.png)
 
 - Now, your two commits have squashed into one. 
 - Now, push add-feature to remote forcefully cause remote has two commits in add-feature. Those two commits will be replaced by 
@@ -204,7 +204,7 @@ Now, your pull request has two commits. The maintainer asked you to squash those
 - Go to GitHub, your pull request will be updated.
 - Done
 
-Code Review:
+#### Code Review
     Suppose you submit a pull request and after reviewing your code the maintainer asked for some changes.
 
     - Make changes as per maintaners requirements
@@ -214,7 +214,7 @@ Code Review:
         > git push -f // need to be forced as amended commit will replace the remote commit
     - Go to GitHub, mark "Resolve' all the open Code Reviews and re-submit. 
 
-Issue Tracker:
+#### Issue Tracker
     Issue Tracker let us list the tasks, bugs, etc. GitHub has its own issue tracker.
     
     On GitHub:
@@ -226,7 +226,7 @@ Issue Tracker:
         - Mentioning issue in commit will qutomatically close the issue as soon as you make a pull request
         - Now, you can push and create a pull request
 
-CI/CD:
+### CI/CD:
     - CI (Continuous Integration): Test code whenever there's a change i.e. It will run whenever there's a new commit in the main branch 
     - Pipeline: List of tasks to perform for each commit like - compile the program, run the unit test, run the integration test, and deploy the project on Test Instance. 
     - Artifacts: Files generate as part of Pipeline like- compiled files, pdf's for ducumentation, etc.
