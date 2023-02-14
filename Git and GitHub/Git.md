@@ -1,4 +1,4 @@
-#GIT
+# GIT 
 
 ### Open source license:
 
@@ -8,21 +8,15 @@ But it's recurring. Every commit must be signed-off with '-s' option which speci
 "developer name <deloper@dev.com>"
 
 - Help: 
-    git help command  , ex: git help commit
-
-- View git version: 
-    git -v OR git --version
-
-- Create and Checkout branch:
+    git help [command]  
     ```
-    git branch <branch_name> // create branch
-    git checkout <branch_name> // checkout to the branch
+    git help commit
     ```
-
-            OR
     
-    git checkout -b <branch_name> // single command to create and then checkout to branch
-
+- View git version: 
+ ```
+    git -v |--version
+```
 
 - Master vs Main: Many hosting system now have renamed the master branch to main.
 So when you create a local repo, rename master to main OR just ignore master & create a new branch main and start
@@ -31,34 +25,47 @@ working from the main branch:
     - Create new main branch: git checkout -b main
 
 - Basic Git Workflow:
-    ​$ mkdir git-test
+
+    ```
+    $ mkdir git-test
     $ cd git-test
     $ git init
+    ```
     
     // Let's tell git who is responsible for this repository. This needs to be set for each new repo unless you have set
     name & email globally
+    ```
     $ git config user.name "Another Genius" 
     $ git config user.email "a_genius@linux.com"
+    ```
 
     // Start working
+    ```
     $ echo some junk > somejunkfile // create a file
     $ git add somejunkfile // add file to staging area
     $ git status // watch status
+    ```
     
     // watch diff
+    ```
     $ echo another line >> somejunkfile
     $ git diff
+    ```
 
     // To actually commit the changes to the repository, we do:
+    ```
     $ git add somejunkfile
     $ git commit -m "My initial commit"
-
+    ```
     // Signing Off on Commits to show who is responsible for the changes:
+    ```
     $ git commit -s -m "My initial commit" 
-
+    ```
+    
     // View commit history
+    ```
     $ git log
-
+    ```
 
 - Upstream & Downstream
 The parent repository is often considered upstream and the repository you are working on, at one point cloned from the parent,
@@ -74,10 +81,10 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
     - Ignored files: Each directory may contain a file named .gitignore which lists either specific files or name patterns which are to be ignored. 
     For instance, all temporary files could be ignored with a specification like *.temp. It is also possible to override the rules 
     by prefixing with !. For example, if your gitignore file includes:
-
+        ```
         *.temp
         !my_driver.temp
-
+        ```
         The second specification overrides the first, more general one, and the file my_driver.temp will be tracked.
 
     - Untracked files: Files which are neither added to staging area or added to .gitignore.
@@ -99,17 +106,14 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
         $ git add myfile
         $ git rm myfile --cached
     
-    - git mv
-    Renames a file and stages the new filename in the repository. It is equivalent to renaming the working file and then doing a git rm on 
+    
+    - `git mv` Renames a file and stages the new filename in the repository. It is equivalent to renaming the working file and then doing a git rm on 
     the old file name and a git add on the new one, i.e. the following operations are equivalent, look at the commands below:
     
         $ git mv oldfile newfile
         $ mv oldfile newfile ; git rm oldfile ; git add newfile
 
-    - git ls-files
-    Shows information about files in the index and working tree. By default, this command shows only files in the repository. If you want to 
-    show the untracked files, follow the command below where the --others option shows the untracked files, and the --exclude-standard option 
-    says to ignore standard exclusions such as .gitignore files.
+    - `git ls-files` Shows information about files in the index and working tree. By default, this command shows only files in the repository. If you want to show the untracked files, follow the command below where the --others option shows the untracked files, and the --exclude-standard option says to ignore standard exclusions such as .gitignore files.
 
         $ git ls-files --others --exclude-standard
 
@@ -132,37 +136,40 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
             $ git diff
     
     - Bash Script to create a repo and make commits:
-            #!/bin/bash
-    
-            mkdir git-test
-            
-            cd git-test
-            git init
-            
-            git config user.name "A Smart Guy"
-            git config user.email "asmartguy@linux.com"
-            
-            echo file1 > file1
-            git add file1
-            git commit -s -m "This is the first commit"
-            
-            echo file2 > file2
-            git add file2
-            git commit . -s -m "This is the second commit"
-            
-            echo file3 > file3
-            echo another line for file3 >> file3
-            git add .
-            git commit . -s -m "This is the third commit"
-            
-            echo another line for file2 >> file2
-            git add .
-            git commit -a -s -m "This is the fourth commit"
-            
-            
+
+        ```
+        #!/bin/bash
+
+        mkdir git-test
+
+        cd git-test
+        git init
+
+        git config user.name "A Smart Guy"
+        git config user.email "asmartguy@linux.com"
+
+        echo file1 > file1
+        git add file1
+        git commit -s -m "This is the first commit"
+
+        echo file2 > file2
+        git add file2
+        git commit . -s -m "This is the second commit"
+
+        echo file3 > file3
+        echo another line for file3 >> file3
+        git add .
+        git commit . -s -m "This is the third commit"
+
+        echo another line for file2 >> file2
+        git add .
+        git commit -a -s -m "This is the fourth commit"
+
+        ```
+   
         Execute the bash file and then log to view commit:
             
-            ​$ git log
+            $ git log
     
         Also, we can view short version of log:
         
@@ -172,20 +179,20 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
     - Tagging: 
         Commits are named using long hash string which are hard to type. We can use tagging to associate a human readable name
         to commits
-    
-            git tag <name> <commit_hash>
-        
-            ex: git tag commit10 6546sdfserf5er6ere6er65er5er5erhft
-
-        To view all the tags: git tag
+            
+            ```
+            git tag <name> <commit_hash>     
+            git tag commit10 6546sdfserf5er6ere6er65er5er5erhft
+            ```
+            
+        To view all the tags: `git tag`
     
     
     - Reverting and Resetting Commits
         From time to time, you may realize that you have committed changes unwisely. 
         Either you may have made changes you never should have, or you committed prematurely. 
         
-        - Revert:
-            In case, you made some changes that you never should have, and now you want to revert the working directory to some past commit, 
+        - Revert: In case, you made some changes that you never should have, and now you want to revert the working directory to some past commit, 
             use 'revert' command. 
             No previous commit will be removed. Revert adds a new commit, sets HEAD to it, and updates the working 
             directory to reflect reversion. Any uncommitted changes in the working directory will be discarded.
@@ -202,8 +209,11 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
         - Reset: 
             In case you want to remove previous prematurely made commits, use 'reset' command, this will not change the working directory
             but will remove the commit only. Any uncommitted changes in the working directory will be discarded. 
-
+            
+            
+            ```
             $ git reset HEAD~2 // will remove the first two commits and will set the HEAD to 3rd commit
+            ```
 
             - Options: 
                 
@@ -215,9 +225,11 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
             everything before that should be made available to others. Then, you should create a new working branch while resetting 
             the main branch back three commits as in:
             
+            ```
                 $ git branch work // copy main branch progress to work branch
                 $ git reset --hard HEAD~3 // remove first 3 commits
                 $ git checkout work // checkout to work where you have all the commits including first 3 commits
+            ```
             
             which restores the main branch to its previous state, while leaving the speculative work in work, where you will continue to play. 
           
@@ -228,7 +240,7 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
 
         - First check the repository size:
         
-            ​$ du -shc .git
+            $ du -shc .git
     
         - Then issue following command to compact it:
             
@@ -244,7 +256,7 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
     - Blame
         It is possible to assign blame for whom is responsible for a given set of lines in a file. For example:
 
-            ​$ git blame file2
+            $ git blame file2
 
         Shows the responsible commit and author. It is possible to specify a range of lines and other parameters for the search.
 
@@ -287,7 +299,6 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
         
         to get back to your current working state.
         
-        ​
 
 - Branch
     - Create branch: $ git branch [branch_name]
@@ -358,12 +369,12 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
         Git tries to auto-merge the branches but in some cases conflict may happen. In such case, there are two basic approaches you can 
         take to fixing the problems:
 
-        1. Revert the merge - If you have made a mess of things with a premature or accidental merge, it is easy to revert back to where 
+        1.Revert the merge - If you have made a mess of things with a premature or accidental merge, it is easy to revert back to where 
         you were with:
 
             $ git reset --hard main
 
-        2. Resolve the conflict
+        2.Resolve the conflict
             - View conflict: $ cat file_name OR open an editor
             - Manually edit files to resolve the conflict
             - Add files to Staging Area
