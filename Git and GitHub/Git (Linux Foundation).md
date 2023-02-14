@@ -180,10 +180,12 @@ Git distinguishes between three types of files: tracked, ignored, and untracked,
         Commits are named using long hash string which are hard to type. We can use tagging to associate a human readable name
         to commits
             
-            ```
+        ```
+
             git tag <name> <commit_hash>     
             git tag commit10 6546sdfserf5er6ere6er65er5er5erhft
-            ```
+
+        ```
             
         To view all the tags: `git tag`
     
