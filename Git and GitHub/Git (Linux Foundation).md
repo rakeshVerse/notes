@@ -1,9 +1,9 @@
 # GIT 
 
 To Do's:
-    - Structure the Notes
-    - Add Diagrams for Revert, Reset
-    - Add table for Reset- soft, mix and hard
+- Structure the Notes
+- Add Diagrams for Revert, Reset
+- Add table for Reset- soft, mix and hard
 
 ### Open source license:
 
