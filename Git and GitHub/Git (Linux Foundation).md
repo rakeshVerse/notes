@@ -1,5 +1,10 @@
 # GIT 
 
+To Do's:
+    - Structure the Notes
+    - Add Diagrams for Revert, Reset
+    - Add table for Reset- soft, mix and hard
+
 ### Open source license:
 
 1. Contributor License Agreement (CLA) - It requires contributors to sign an agreement. It's a one time thing.
