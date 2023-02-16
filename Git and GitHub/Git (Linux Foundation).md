@@ -5,6 +5,7 @@ To Do's:
 - Add Diagrams for Revert, Reset
 - Add table for Reset- soft, mix and hard
 - Merge Google's Git to this file
+- Publish notes on gh-pages
 
 ### Open source license:
 
