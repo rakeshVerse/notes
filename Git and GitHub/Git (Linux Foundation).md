@@ -4,6 +4,7 @@ To Do's:
 - Structure the Notes
 - Add Diagrams for Revert, Reset
 - Add table for Reset- soft, mix and hard
+- Merge Google's Git to this file
 
 ### Open source license:
 
